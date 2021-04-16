@@ -2,14 +2,18 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const CourseList = () => {
-  const courses = useSelector(state => state.data);
-  const dispatch = useDispatch();
-
+  const courseControl = 150;
   const [course, setCourse] = useState('');
+
+  const courses = useSelector(
+    state => state.data.slice(0, courseControl),
+    [courseControl]
+  );
+
+  const dispatch = useDispatch();
 
   function addCourse() {
     dispatch({ type: 'ADD_COURSE', title: course });
-
   }
 
   return (
