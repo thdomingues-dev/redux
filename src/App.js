@@ -1,8 +1,13 @@
+import { Provider } from 'react-redux';
+import store from './store';
+
+import CourseList from './components/CourseList';
+
 function App() {
   return (
-    <div className="App">
-      Hello, TH!
-    </div>
+    <Provider store={store}>
+      <CourseList />
+    </Provider>
   );
 }
 
